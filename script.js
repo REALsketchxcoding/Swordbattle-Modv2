@@ -230,6 +230,17 @@ spinPlayerButton.addEventListener("click", function(){
 
 container.append(spinPlayerButton);
 
+
+var infiniteHealthbutton = document.createElement("button");
+invisibleHitButton.innerText = "Start Infinite Health";
+invisibleHitButton.style.border = "none";
+invisibleHitButton.style.borderRadius = "4px";
+invisibleHitButton.style.padding = "3px";
+invisibleHitButton.style.cursor = "pointer";
+var intervalId;
+invisibleHealthButton.addEventListener("click", function(){
+  var canvas = document.getElementsByTagName("canvas")[0];
+    
 var invisibleHitButton = document.createElement("button");
 invisibleHitButton.innerText = "Start Invisible Hit";
 invisibleHitButton.style.border = "none";
