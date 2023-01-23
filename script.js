@@ -230,30 +230,36 @@ spinPlayerButton.addEventListener("click", function(){
 
 container.append(spinPlayerButton);
 
-var invisibleHitButton = document.createElement("button");
-invisibleHitButton.innerText = "Start Invisible Hit";
-invisibleHitButton.style.border = "none";
-invisibleHitButton.style.borderRadius = "4px";
-invisibleHitButton.style.padding = "3px";
-invisibleHitButton.style.cursor = "pointer";
+var infiniteHealthButton = document.createElement("button");
+infiniteHealthButton.innerText = "Start Infinite Health";
+infiniteHealthButton.style.border = "none";
+infiniteHealthButton.style.borderRadius = "4px";
+infiniteHealthButton.style.padding = "3px";
+infiniteHealthButton.style.cursor = "pointer";
 var intervalId;
-invisibleHitButton.addEventListener("click", function(){
+infiniteHealthButton.addEventListener("click", function(){
   var canvas = document.getElementsByTagName("canvas")[0];
   if (canvas) {
     if(intervalId) {
       clearInterval(intervalId);
       intervalId = null;
-      invisibleHitButton.innerText = "Start Invisible Hit";
+      infiniteHealthButton.innerText = "Start Infinite Health";
     } else {
       intervalId = setInterval(() => {
-        canvas.dispatchEvent(new MouseEvent("mousedown", {
-          clientX: mouseX,
-          clientY: mouseY,
-          view: window,
-          bubbles: true,
-          cancelable: true
-        }));
-        canvas.dispatchEvent(new MouseEvent("mouseup", {
+      const canvas = document.getElementById('canvas');
+
+let health = 100;
+
+function updateHealth() {
+  health = (health + 1) % 100;
+  canvas.dispatchEvent(new CustomEvent('healthChanged', {
+    detail: {
+      health: health
+    }
+  }));
+}
+
+setInterval(updateHealth, 1000);
           clientX: mouseX,
           clientY: mouseY,
           view: window,
@@ -261,7 +267,7 @@ invisibleHitButton.addEventListener("click", function(){
           cancelable: true
         }));
       }, 10);
-      invisibleHitButton.innerText = "Stop Invisible Hit";
+      invisibleHitButton.innerText = "Stop Infinite health";
     }
   }
 });
