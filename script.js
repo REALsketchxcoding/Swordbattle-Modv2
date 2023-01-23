@@ -287,8 +287,7 @@ godButton.addEventListener('click', () =>{
     godButton.innerText='Start God Mode'
   }
 });
-
-let autoRespawn = false;
+document.body.appendChild(godButton)
 
 let autoRespawnButton = document.createElement("input");
 autoRespawnButton.type = 'checkbox';
