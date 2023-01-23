@@ -271,6 +271,23 @@ document.addEventListener("mousemove", (event) => {
 });
 container.appendChild(invisibleHitButton);
 
+isGod = false
+godButton=document.createElement('button')
+godButton.innerText = "Start God Mode";
+godButton.style.border = "none";
+godButton.style.borderRadius = "4px";
+godButton.style.padding = "3px";
+godButton.style.cursor = "pointer";
+godButton.addEventListener('click', () =>{
+  if (god == false){
+    isGod = true
+    godButton.innerText='Stop God Mode'
+  } else {
+    isGod = false
+    godButton.innerText='Start God Mode'
+  }
+});
+
 let autoRespawn = false;
 
 let autoRespawnButton = document.createElement("input");
