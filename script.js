@@ -297,3 +297,19 @@ autoRespawnButton.addEventListener("click", function(){
 function autoRespawnFunc() {
     document.getElementById('play-btn').click();
 }
+
+// Swordbattle.io Player Health Invincibility
+
+// Create a function to make the player health invincible
+function makeInvincible() {
+  // Set the player health to an infinite number
+  let playerHealth = Infinity;
+  
+  // Return the player health
+  return playerHealth;
+}
+
+// Call the makeInvincible function
+let invinciblePlayerHealth = makeInvincible();
+
+}
