@@ -271,6 +271,13 @@ document.addEventListener("mousemove", (event) => {
 });
 container.appendChild(invisibleHitButton);
 
+var health = 100;
+
+function updateHealth(newHealth) {
+    health = newHealth;
+}
+
+
 let autoRespawn = false;
 
 let autoRespawnButton = document.createElement("input");
