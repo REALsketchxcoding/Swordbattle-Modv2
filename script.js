@@ -271,6 +271,21 @@ document.addEventListener("mousemove", (event) => {
 });
 container.appendChild(invisibleHitButton);
 
+// Create a button element
+let button = document.createElement("button");
+
+// Set the button text
+button.innerHTML = "Open Swordbattle Skin Shop";
+
+// Add an event listener to the button
+button.addEventListener("click", function(){
+    // Open the Swordbattle Skin Shop
+    window.open("https://swordbattle.com/skinshop");
+});
+
+// Append the button to the body
+document.body.appendChild(button);
+
 let autoRespawn = false;
 
 let autoRespawnButton = document.createElement("input");
